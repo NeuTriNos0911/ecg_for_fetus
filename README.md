@@ -1,23 +1,57 @@
-# ecg_for_fetus
-ECG extraction from maternal signals using Pix2Pix GAN in the time-frequency domain.
-This repository implements a deep learning-based method for extracting fetal electrocardiogram (fECG) signals from maternal abdominal ECG recordings using Pix2Pix GAN. By working in the time-frequency domain, the model learns a mapping from maternal ECG spectrograms to fetal ECG spectrograms, enabling more accurate separation of fetal signals even in noisy environments.
+# Fetal ECG Extraction With Pix2Pix GAN
 
-The project includes scripts for data preparation, training, testing, and evaluation. It is based on the PyTorch implementation of Pix2Pix, and includes configuration for Visdom and W&B for visualization and tracking.
+Deep learning project for extracting fetal ECG signals from maternal ECG recordings using Pix2Pix GANs in the time-frequency domain.
 
-Main Features:
+## Project Snapshot
 
-Pix2Pix GAN-based signal-to-signal translation
+- Biomedical signal processing project focused on non-invasive fetal monitoring.
+- Uses a Pix2Pix-style conditional GAN for signal-to-signal translation.
+- Converts maternal ECG inputs into time-frequency representations for model training.
+- Includes training, testing, data utility, visualization, and model modules.
+- Built with PyTorch, NumPy, OpenCV, Visdom, and Weights & Biases support.
 
-Time-frequency domain analysis for fECG extraction
+## Why This Matters
 
-Easy training and testing setup
+Fetal ECG extraction is difficult because maternal abdominal ECG recordings contain mixed maternal, fetal, and noise components. This project explores a GAN-based approach that learns to separate fetal ECG patterns from maternal ECG signals in the spectrogram domain.
 
-Evaluation against conventional signal processing methods
+## Project Structure
 
-Use Cases:
+```text
+.
+|-- train.py                 # Training entry point
+|-- test.py                  # Inference/testing entry point
+|-- requirements.txt         # Python dependencies
+|-- checkpoints/             # Included model checkpoint artifacts
+|-- models/                  # Pix2Pix model and network definitions
+|-- options/                 # Train/test option parsers
+|-- util/                    # Data, visualization, and helper utilities
+`-- notebooks/               # Exploratory notebook
+```
 
-Biomedical signal processing
+## Setup
 
-Non-invasive fetal monitoring
+Create a virtual environment and install dependencies:
 
-GAN applications in healthcare
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+## Usage
+
+Train the model:
+
+```bash
+python train.py
+```
+
+Run inference/testing:
+
+```bash
+python test.py
+```
+
+## Recruiter Notes
+
+This repository demonstrates applied deep learning, medical signal processing, PyTorch model organization, experiment configuration, and practical GAN usage beyond image generation.
